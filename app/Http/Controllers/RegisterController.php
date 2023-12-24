@@ -14,7 +14,7 @@ class RegisterController extends Controller
       ]);
   }
 
-  public function store(Request $request)
+  public function storeAcc(Request $request)
   {
     $validatedData = $request->validate([
       'name' => 'required|max:255',
@@ -25,8 +25,6 @@ class RegisterController extends Controller
 
     User::create($validatedData);
 
-    // $request->session()->flash('success', 'Registration Successfully!');
-
-    return redirect('/auth/login')->with('success', 'Registration Successfully!');
+    return redirect('/auth/login')->with('registerSuccess', 'Registration Successfully!');
   }
 }

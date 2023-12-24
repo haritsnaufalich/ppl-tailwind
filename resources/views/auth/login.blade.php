@@ -7,7 +7,7 @@
     </div>
     <div class="grid col-span-1 content-center justify-items-center relative">
 
-      @if (session()->has('success'))
+      @if (session()->has('registerSuccess'))
         {{-- Toast --}}
         <div class="absolute max-w-xs bg-[#eceeed] rounded-xl bottom-3 right-3 toast-out" role="alert">
           <div class="flex p-4">
@@ -20,7 +20,7 @@
             </div>
             <div class="ms-3">
               <p class="text-sm text-[#202221]">
-                {{ session('success') }}
+                {{ session('registerSuccess') }}
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@
         {{-- End Toast --}}
       @endif
 
-      <form action="/auth/login" method="POST">
+      <form action="/auth/login" method="post">
         @csrf
         <div class="flex flex-col gap-6 p-12 rounded-xl bg-[#202221] min-w-[480px]">
           <div class="flex flex-col gap-4">

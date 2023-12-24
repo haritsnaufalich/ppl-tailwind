@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FootballLeague extends Model
+class ClubRequest extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    public function matches()
+    public function football_club()
     {
-      return $this->hasMany(FootballMatch::class);
+        return $this->belongsTo(FootballClub::class);
     }
 
-    public function clubs()
+    public function request_type()
     {
-        return $this->hasMany(FootballClub::class);
+        return $this->belongsTo(RequestType::class);
     }
 }

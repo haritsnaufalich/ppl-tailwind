@@ -18,7 +18,7 @@ class FootballMatchController extends Controller
     public function show(FootballMatch $match)
     {
         return view('match', [
-            'title' => 'Match',
+            'title' => 'Matches',
             'match' => $match
         ]);
     }

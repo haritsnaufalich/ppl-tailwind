@@ -6,7 +6,7 @@
       <img src="/assets/Football.svg" alt="" class="max-h-screen w-full object-fill">
     </div>
     <div class="grid col-span-1 content-center justify-items-center">
-      <form action="/auth/register" method="POST">
+      <form action="/auth/register" method="post">
         @csrf
         <div class="flex flex-col gap-6 p-12 rounded-xl bg-[#202221] min-w-[480px]">
           <div class="flex flex-col gap-4">

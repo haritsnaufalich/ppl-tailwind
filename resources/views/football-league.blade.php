@@ -18,5 +18,6 @@
         </a>
       @endforeach
     </div>
+    <a class="font-bold hover:underline hover:underline-offset-4" href="/football-leagues">Back to Football Leagues</a>
   </div>
 @endsection

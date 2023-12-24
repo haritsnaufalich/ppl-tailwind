@@ -6,6 +6,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\FootballMatch;
 use App\Models\FootballLeague;
+use App\Models\FootballClub;
+use App\Models\RequestType;
+use App\Models\ClubRequest;
+use App\Models\SponsorshipType;
+use App\Models\ClubSponsorship;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -29,7 +34,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '1',
             'first_team_img' => '/assets/epl/Arsenal.svg',
@@ -39,7 +43,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '1',
             'first_team_img' => '/assets/epl/Liverpool.svg',
@@ -60,7 +63,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '2',
             'first_team_img' => '/assets/bundesliga/Eintracht_Frankfurt.svg',
@@ -81,7 +83,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '3',
             'first_team_img' => '/assets/laliga/Real_Betis.svg',
@@ -91,7 +92,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '3',
             'first_team_img' => '/assets/laliga/Real_Sociedad.svg',
@@ -112,7 +112,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '4',
             'first_team_img' => '/assets/seriea/Atalanta.svg',
@@ -122,7 +121,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '4',
             'first_team_img' => '/assets/seriea/Juventus.svg',
@@ -143,7 +141,6 @@ class DatabaseSeeder extends Seeder
             'match_date' => $formattedDate,
             'match_time' => $randomTime,
         ]);
-
         FootballMatch::create([
             'football_league_id' => '5',
             'first_team_img' => '/assets/ligue1/PSG.svg',
@@ -155,25 +152,173 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Football Leagues
-
         FootballLeague::create([
             'name' => 'English Premier League',
         ]);
-
         FootballLeague::create([
             'name' => 'Bundesliga',
         ]);
-
         FootballLeague::create([
             'name' => 'LaLiga',
         ]);
-
         FootballLeague::create([
             'name' => 'Serie A',
         ]);
-
         FootballLeague::create([
             'name' => 'Ligue 1',
         ]);
+
+        // Football Club
+        FootballClub::create([
+            'name' => 'Bayern Munich',
+            'football_league_id' => '2',
+        ]);
+        FootballClub::create([
+            'name' => 'Borussia Dortmund',
+            'football_league_id' => '2',
+        ]);
+        FootballClub::create([
+            'name' => 'Eintracht Frankfurt',
+            'football_league_id' => '2',
+        ]);
+        FootballClub::create([
+            'name' => 'RB Leipzig',
+            'football_league_id' => '2',
+        ]);
+        FootballClub::create([
+            'name' => 'Arsenal',
+            'football_league_id' => '1',
+        ]);
+        FootballClub::create([
+            'name' => 'Chelsea',
+            'football_league_id' => '1',
+        ]);
+        FootballClub::create([
+            'name' => 'Liverpool',
+            'football_league_id' => '1',
+        ]);
+        FootballClub::create([
+            'name' => 'Manchester City',
+            'football_league_id' => '1',
+        ]);
+        FootballClub::create([
+            'name' => 'Manchester United',
+            'football_league_id' => '1',
+        ]);
+        FootballClub::create([
+            'name' => 'Tottenham Hotspur',
+            'football_league_id' => '1',
+        ]);
+        FootballClub::create([
+            'name' => 'Atletico Madrid',
+            'football_league_id' => '3',
+        ]);
+        FootballClub::create([
+            'name' => 'Barcelona',
+            'football_league_id' => '3',
+        ]);
+        FootballClub::create([
+            'name' => 'Real Betis',
+            'football_league_id' => '3',
+        ]);
+        FootballClub::create([
+            'name' => 'Real Madrid',
+            'football_league_id' => '3',
+        ]);
+        FootballClub::create([
+            'name' => 'Real Sociedad',
+            'football_league_id' => '3',
+        ]);
+        FootballClub::create([
+            'name' => 'Valencia',
+            'football_league_id' => '3',
+        ]);
+        FootballClub::create([
+            'name' => 'AS Monaco',
+            'football_league_id' => '5',
+        ]);
+        FootballClub::create([
+            'name' => 'Lyon',
+            'football_league_id' => '5',
+        ]);
+        FootballClub::create([
+            'name' => 'PSG',
+            'football_league_id' => '5',
+        ]);
+        FootballClub::create([
+            'name' => 'Stade Rennais',
+            'football_league_id' => '5',
+        ]);
+        FootballClub::create([
+            'name' => 'AC Milan',
+            'football_league_id' => '4',
+        ]);
+        FootballClub::create([
+            'name' => 'AS Roma',
+            'football_league_id' => '4',
+        ]);
+        FootballClub::create([
+            'name' => 'Atalanta',
+            'football_league_id' => '4',
+        ]);
+        FootballClub::create([
+            'name' => 'Inter Milan',
+            'football_league_id' => '4',
+        ]);
+        FootballClub::create([
+            'name' => 'Juventus',
+            'football_league_id' => '4',
+        ]);
+        FootballClub::create([
+            'name' => 'Napoli',
+            'football_league_id' => '4',
+        ]);
+
+        // Request Type
+        RequestType::create([
+            'name' => 'Bathroom',
+        ]);
+        RequestType::create([
+            'name' => 'Field',
+        ]);
+        RequestType::create([
+            'name' => 'Gym',
+        ]);
+        RequestType::create([
+            'name' => 'Treatment Room',
+        ]);
+        RequestType::create([
+            'name' => 'Meeting Room',
+        ]);
+
+        // Club Request
+        ClubRequest::create([
+            'football_club_id' => '9',
+            'request_type_id' => '1',
+            'email' => 'haritsnaufal@email.com',
+            'description' => 'Lorem Ipsum Lorem Ipsum...',
+        ]);
+
+        // Sponsorship Type
+        SponsorshipType::create([
+            'name' => 'Financial',
+        ]);
+        SponsorshipType::create([
+            'name' => 'Official Partner',
+        ]);
+        SponsorshipType::create([
+            'name' => 'Product Placement',
+        ]);
+        SponsorshipType::create([
+            'name' => 'Media',
+        ]);
+
+        // Club Sponsorship
+        ClubSponsorship::create([
+          'football_club_id' => '9',
+          'sponsorship_type_id' => '1',
+          'email' => 'haritsnaufal@email.com',
+          'description' => 'Lorem Ipsum Lorem Ipsum...',
+      ]);
     }
 }

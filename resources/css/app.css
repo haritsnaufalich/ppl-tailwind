@@ -4,6 +4,25 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+    @apply w-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    @apply bg-[#202221];
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-[#ECEEED];
+}
+
+/* Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#ECEEED]/[0.5];
+}
+
 * {
     font-family: "Montserrat", sans-serif;
     @apply !antialiased;
