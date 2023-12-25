@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('football_leagues', function (Blueprint $table) {
+        Schema::create('bundesliga_tables', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->string('slug');
-            $table->string('img');
+            $table->foreignId('football_club_id');
+            $table->foreignId('football_league_id');
+            $table->integer('played');
+            $table->integer('win');
+            $table->integer('draw');
+            $table->integer('lose');
+            $table->integer('point');
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('football_leagues');
+        Schema::dropIfExists('bundesliga_tables');
     }
 };

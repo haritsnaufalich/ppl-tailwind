@@ -12,6 +12,11 @@ use App\Models\ClubRequest;
 use App\Models\SponsorshipType;
 use App\Models\ClubSponsorship;
 use App\Models\User;
+use App\Models\BundesligaTable;
+use App\Models\EPLTable;
+use App\Models\LaLigaTable;
+use App\Models\Ligue1Table;
+use App\Models\SerieATable;
 
 class DatabaseSeeder extends Seeder
 {
@@ -154,18 +159,28 @@ class DatabaseSeeder extends Seeder
         // Football Leagues
         FootballLeague::create([
             'name' => 'English Premier League',
+            'slug' => 'EPL',
+            'img' => '/assets/epl/epl.svg',
         ]);
         FootballLeague::create([
             'name' => 'Bundesliga',
+            'slug' => 'Bundesliga',
+            'img' => '/assets/bundesliga/bundesliga.svg',
         ]);
         FootballLeague::create([
             'name' => 'LaLiga',
+            'slug' => 'LaLiga',
+            'img' => '/assets/laliga/laliga.svg',
         ]);
         FootballLeague::create([
             'name' => 'Serie A',
+            'slug' => 'SerieA',
+            'img' => '/assets/seriea/seriea.svg',
         ]);
         FootballLeague::create([
             'name' => 'Ligue 1',
+            'slug' => 'Ligue1',
+            'img' => '/assets/ligue1/ligue1.svg',
         ]);
 
         // Football Club
@@ -315,10 +330,263 @@ class DatabaseSeeder extends Seeder
 
         // Club Sponsorship
         ClubSponsorship::create([
-          'football_club_id' => '9',
-          'sponsorship_type_id' => '1',
-          'email' => 'haritsnaufal@email.com',
-          'description' => 'Lorem Ipsum Lorem Ipsum...',
-      ]);
+            'football_club_id' => '9',
+            'sponsorship_type_id' => '1',
+            'email' => 'haritsnaufal@email.com',
+            'description' => 'Lorem Ipsum Lorem Ipsum...',
+        ]);
+
+        // User Admin
+        User::create([
+            'name' => 'Harits Naufal',
+            'username' => 'haritsnaufal',
+            'email' => 'haritsnaufal@email.com',
+            'password' => 'Password01',
+            'isAdmin' => 1,
+        ]);
+
+        // Bundesliga Table
+        BundesligaTable::create([
+            'football_club_id' => '1',
+            'football_league_id' => '2',
+            'played' => 18,
+            'win' => 15,
+            'draw' => 1,
+            'lose' => 2,
+            'point' => 46,
+        ]);
+        BundesligaTable::create([
+            'football_club_id' => '2',
+            'football_league_id' => '2',
+            'played' => 18,
+            'win' => 14,
+            'draw' => 0,
+            'lose' => 4,
+            'point' => 42,
+        ]);
+        BundesligaTable::create([
+            'football_club_id' => '3',
+            'football_league_id' => '2',
+            'played' => 18,
+            'win' => 13,
+            'draw' => 1,
+            'lose' => 4,
+            'point' => 40,
+        ]);
+        BundesligaTable::create([
+            'football_club_id' => '4',
+            'football_league_id' => '2',
+            'played' => 18,
+            'win' => 12,
+            'draw' => 0,
+            'lose' => 6,
+            'point' => 36,
+        ]);
+
+        // EPL Table
+        EPLTable::create([
+            'football_club_id' => '5',
+            'football_league_id' => '1',
+            'played' => 18,
+            'win' => 18,
+            'draw' => 0,
+            'lose' => 0,
+            'point' => 54,
+        ]);
+        EPLTable::create([
+            'football_club_id' => '6',
+            'football_league_id' => '1',
+            'played' => 18,
+            'win' => 17,
+            'draw' => 1,
+            'lose' => 0,
+            'point' => 52,
+        ]);
+        EPLTable::create([
+            'football_club_id' => '7',
+            'football_league_id' => '1',
+            'played' => 18,
+            'win' => 16,
+            'draw' => 0,
+            'lose' => 2,
+            'point' => 48,
+        ]);
+        EPLTable::create([
+            'football_club_id' => '8',
+            'football_league_id' => '1',
+            'played' => 18,
+            'win' => 15,
+            'draw' => 1,
+            'lose' => 2,
+            'point' => 46,
+        ]);
+        EPLTable::create([
+            'football_club_id' => '9',
+            'football_league_id' => '1',
+            'played' => 18,
+            'win' => 14,
+            'draw' => 0,
+            'lose' => 4,
+            'point' => 42,
+        ]);
+        EPLTable::create([
+            'football_club_id' => '10',
+            'football_league_id' => '1',
+            'played' => 18,
+            'win' => 13,
+            'draw' => 1,
+            'lose' => 4,
+            'point' => 40,
+        ]);
+
+        // LaLiga Table
+        LaLigaTable::create([
+            'football_club_id' => '11',
+            'football_league_id' => '3',
+            'played' => 18,
+            'win' => 17,
+            'draw' => 0,
+            'lose' => 1,
+            'point' => 51,
+        ]);
+        LaLigaTable::create([
+            'football_club_id' => '12',
+            'football_league_id' => '3',
+            'played' => 18,
+            'win' => 16,
+            'draw' => 1,
+            'lose' => 1,
+            'point' => 49,
+        ]);
+        LaLigaTable::create([
+            'football_club_id' => '13',
+            'football_league_id' => '3',
+            'played' => 18,
+            'win' => 15,
+            'draw' => 0,
+            'lose' => 3,
+            'point' => 45,
+        ]);
+        LaLigaTable::create([
+            'football_club_id' => '14',
+            'football_league_id' => '3',
+            'played' => 18,
+            'win' => 14,
+            'draw' => 1,
+            'lose' => 3,
+            'point' => 43,
+        ]);
+        LaLigaTable::create([
+            'football_club_id' => '15',
+            'football_league_id' => '3',
+            'played' => 18,
+            'win' => 13,
+            'draw' => 0,
+            'lose' => 5,
+            'point' => 39,
+        ]);
+        LaLigaTable::create([
+            'football_club_id' => '16',
+            'football_league_id' => '3',
+            'played' => 18,
+            'win' => 12,
+            'draw' => 1,
+            'lose' => 5,
+            'point' => 37,
+        ]);
+
+        // Ligue1 Table
+        Ligue1Table::create([
+            'football_club_id' => '17',
+            'football_league_id' => '5',
+            'played' => 18,
+            'win' => 18,
+            'draw' => 0,
+            'lose' => 0,
+            'point' => 54,
+        ]);
+        Ligue1Table::create([
+            'football_club_id' => '18',
+            'football_league_id' => '5',
+            'played' => 18,
+            'win' => 17,
+            'draw' => 1,
+            'lose' => 0,
+            'point' => 52,
+        ]);
+        Ligue1Table::create([
+            'football_club_id' => '19',
+            'football_league_id' => '5',
+            'played' => 18,
+            'win' => 16,
+            'draw' => 0,
+            'lose' => 2,
+            'point' => 48,
+        ]);
+        Ligue1Table::create([
+            'football_club_id' => '20',
+            'football_league_id' => '5',
+            'played' => 18,
+            'win' => 15,
+            'draw' => 1,
+            'lose' => 2,
+            'point' => 46,
+        ]);
+
+        // SerieA Table
+        SerieATable::create([
+            'football_club_id' => '21',
+            'football_league_id' => '4',
+            'played' => 18,
+            'win' => 17,
+            'draw' => 0,
+            'lose' => 1,
+            'point' => 51,
+        ]);
+        SerieATable::create([
+            'football_club_id' => '22',
+            'football_league_id' => '4',
+            'played' => 18,
+            'win' => 16,
+            'draw' => 1,
+            'lose' => 1,
+            'point' => 49,
+        ]);
+        SerieATable::create([
+            'football_club_id' => '23',
+            'football_league_id' => '4',
+            'played' => 18,
+            'win' => 15,
+            'draw' => 0,
+            'lose' => 3,
+            'point' => 45,
+        ]);
+        SerieATable::create([
+            'football_club_id' => '24',
+            'football_league_id' => '4',
+            'played' => 18,
+            'win' => 14,
+            'draw' => 1,
+            'lose' => 3,
+            'point' => 43,
+        ]);
+        SerieATable::create([
+            'football_club_id' => '25',
+            'football_league_id' => '4',
+            'played' => 18,
+            'win' => 13,
+            'draw' => 0,
+            'lose' => 5,
+            'point' => 39,
+        ]);
+        SerieATable::create([
+            'football_club_id' => '26',
+            'football_league_id' => '4',
+            'played' => 18,
+            'win' => 12,
+            'draw' => 1,
+            'lose' => 5,
+            'point' => 37,
+        ]);
     }
 }

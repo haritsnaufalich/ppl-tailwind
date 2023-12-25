@@ -15,4 +15,29 @@ class FootballClub extends Model
     {
         return $this->belongsTo(FootballLeague::class);
     }
+
+    public function bundesligaTable()
+    {
+        return $this->hasOne(BundesligaTable::class);
+    }
+
+    public function eplTable()
+    {
+        return $this->hasOne(EPLTable::class);
+    }
+
+    public function laligaTable()
+    {
+        return $this->hasOne(LaLigaTable::class);
+    }
+
+    public function ligue1Table()
+    {
+        return $this->hasOne(Ligue1Table::class);
+    }
+
+    public function serieaTable()
+    {
+        return $this->hasOne(SerieATable::class);
+    }
 }

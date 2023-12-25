@@ -11,9 +11,9 @@
             <p>{{ $match->match_date }}</p>
             <p>{{ $match->match_time }}</p>
             <div class="flex items-center space-x-4">
-              <img class="max-h-20 max-w-20" src="{{ $match->first_team_img }}" alt="">
+              <img class="max-h-20 max-w-full" src="{{ $match->first_team_img }}" alt="">
               <p>VS</p>
-              <img class="max-h-20 max-w-20" src="{{ $match->second_team_img }}" alt="">
+              <img class="max-h-20 max-w-full" src="{{ $match->second_team_img }}" alt="">
             </div>
           </div>
         </a>

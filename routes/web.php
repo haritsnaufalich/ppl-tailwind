@@ -4,6 +4,7 @@ use App\Models\FootballMatch;
 use App\Models\FootballLeague;
 use App\Models\RequestType;
 use App\Models\FootballClub;
+use App\Models\EPLTable;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -13,7 +14,6 @@ use App\Http\Controllers\ClubRequestController;
 use App\Http\Controllers\DashboardClubRequestController;
 use App\Http\Controllers\ClubSponsorshipController;
 use App\Http\Controllers\DashboardClubSponsorshipController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Route::get('/', function () {
     return view('home', [
         'title' => 'Home',
         'matches' => FootballMatch::all()->random(4),
-        'football_leagues' => FootballLeague::all()
+        'tables' => EPLTable::all()
     ]);
 });
 
@@ -48,7 +48,9 @@ Route::get('/matches', [FootballMatchController::class, 'view']);
 Route::get('/matches/{match}', [FootballMatchController::class, 'show']);
 
 // Login & Logout
-Route::get('/auth/login', [LoginController::class, 'view'])->name('login')->middleware('guest');
+Route::get('/auth/login', [LoginController::class, 'view'])
+    ->name('login')
+    ->middleware('guest');
 Route::post('/auth/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -63,33 +65,34 @@ Route::resource('/dashboard/sponsorship', DashboardClubSponsorshipController::cl
 
 // List Football League
 Route::get('/football-leagues', function () {
-  return view('football-leagues', [
-    'title' => 'Football Leagues',
-    'football_leagues' => FootballLeague::all()
-  ]);
+    return view('football-leagues', [
+        'title' => 'Football Leagues',
+        'football_leagues' => FootballLeague::all(),
+    ]);
 });
 
 // List Match by League
-Route::get('/football-leagues/{football_league}', function(FootballLeague $football_league) {
-  return view('football-league', [
-    'title' => $football_league->name,
-    'matches' => $football_league->matches,
-    'football_league' => $football_league->name
-  ]);
+Route::get('/football-leagues/{football_league}', function (FootballLeague $football_league) {
+    return view('football-league', [
+        'title' => $football_league->name,
+        'matches' => $football_league->matches,
+        'football_league' => $football_league->name,
+    ]);
 });
 
 // League Tables (All)
 Route::get('/tables', function () {
-  return view('tables', [
+    return view('tables', [
+        'title' => 'League Tables',
+        'football_leagues' => FootballLeague::all(),
+    ]);
+});
+Route::get('/tables/{football_league}', function (FootballLeague $football_league) {
+  $leagueTableClass = 'App\Models\\' . ucfirst($football_league->slug) . 'Table';
+  $tables = $leagueTableClass::where('football_league_id', $football_league->id)->with('footballClub')->get();
+  return view('table', [
       'title' => 'League Tables',
+      'football_league_name' => $football_league->name,
+      'tables' => $tables,
   ]);
 });
-
-// League Tables by League
-// Route::get('/tables/{table}', function(FootballLeague $table) {
-//   return view('football-league', [
-//     'title' => $table->name,
-//     'matches' => $table->matches,
-//     'table' => $table->name
-//   ]);
-// });
