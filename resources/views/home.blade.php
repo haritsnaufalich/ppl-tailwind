@@ -54,8 +54,10 @@
         @endforeach
       </tbody>
     </table>
-    <div class="fixed py-3 px-6 bg-[#1FD8A4] rounded-xl bottom-6 right-6 z-50">
-      <a href="/live-chat"><i class="fa-solid fa-headset text-[#101211]"></i></a>
-    </div>
+    @auth
+      <div class="fixed py-3 px-6 bg-[#1FD8A4] rounded-xl bottom-6 right-6 z-50">
+        <a href="/chatify"><i class="fa-solid fa-headset text-[#101211]"></i></a>
+      </div>
+    @endauth
   </div>
 @endsection

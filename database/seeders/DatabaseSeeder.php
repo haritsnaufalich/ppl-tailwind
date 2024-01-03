@@ -345,6 +345,14 @@ class DatabaseSeeder extends Seeder
             'isAdmin' => 1,
         ]);
 
+        User::create([
+            'name' => 'Adrian Rachman',
+            'username' => 'adrianrachman',
+            'email' => 'adrianrachman@email.com',
+            'password' => 'Password01',
+            'isAdmin' => 0,
+        ]);
+
         // Bundesliga Table
         BundesligaTable::create([
             'football_club_id' => '1',
