@@ -45,7 +45,7 @@
     @else
       @if (session()->has('requestSuccess'))
         {{-- Toast --}}
-        <div class="absolute max-w-xs bg-[#eceeed] rounded-xl bottom-3 right-3 toast-out" role="alert">
+        <div class="absolute max-w-xs bg-[#eceeed] rounded-xl bottom-3 right-3 toast-out z-40" role="alert">
           <div class="flex p-4">
             <div class="flex-shrink-0">
               <svg class="flex-shrink-0 h-4 w-4 text-teal-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16"
